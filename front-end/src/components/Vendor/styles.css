@@ -1,0 +1,119 @@
+/* styles.css */
+
+.app {
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #f8f9fd;
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #01d28e;
+  border: 1px solid #01d28e;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background: #6cf0c2;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+.containerCard {
+  margin-top: 20px;
+  color: darkgreen;
+}
+
+.card-containerCard {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(2, 1fr);
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    color: darkgreen;
+    border-color: olivedrab;
+  }
+}
+
+.cardImage {
+  height: 200px;
+}
+
+.customCard {
+  margin-left: 5%;
+  margin-right: 5%;
+  @media screen and (max-width: 768px) {
+    width: 100%; /* Full width on smaller screens */
+  }
+  width: calc(50% - 10px); /* Adjust width of cards and consider margins */
+  margin-bottom: 20px; /* Add some margin between rows */
+}
+
+.add-button {
+  background-color: whitesmoke;
+  color: green;
+  border-color: olive;
+  border-width: 3.5px;
+  width: 7%;
+}
+
+.inputBox {
+  border: "2px solid Green";
+  margin: "15px";
+}
