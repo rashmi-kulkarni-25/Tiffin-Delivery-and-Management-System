@@ -31,7 +31,7 @@ function VendorLogin() {
           sessionStorage.setItem("vendorId", vendorId);
 
           setTimeout(() => {
-            navigate("/vendor-homepage");
+            navigate("/vendor-profile");
           }, 4000);
         })
         .catch((error) => {

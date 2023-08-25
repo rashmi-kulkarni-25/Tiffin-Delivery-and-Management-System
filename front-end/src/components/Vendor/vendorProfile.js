@@ -60,8 +60,14 @@ function VendorProfile() {
       <center>
         <br />
         <h1>Vendor Profile</h1>
+        <b> Name :</b>
         <input
-          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
+          style={{
+            border: "2px solid Green",
+            margin: "10px",
+            width: "30%",
+            marginLeft: "35px",
+          }}
           type="text"
           placeholder="Name"
           value={vendorProfileData.name || ""}
@@ -71,8 +77,14 @@ function VendorProfile() {
           }
         />
         <br />
+        <b> Email : </b>
         <input
-          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
+          style={{
+            border: "2px solid Green",
+            margin: "10px",
+            width: "30%",
+            marginLeft: "30px",
+          }}
           type="text"
           placeholder="Email"
           value={vendorProfileData.email || ""}
@@ -85,12 +97,13 @@ function VendorProfile() {
           }
         />
         <br />
+        <b style={{ verticalAlign: "25px" }}> Address :</b>
         <textarea
           style={{
             border: "2px solid Green",
             margin: "10px",
             width: "30%",
-            height: "150px",
+            marginLeft: "20px",
           }}
           placeholder="Address"
           value={vendorProfileData.address || ""}
@@ -103,6 +116,7 @@ function VendorProfile() {
           }
         />
         <br />
+        <b> Pincode :</b>
         <input
           style={{ border: "2px solid Green", margin: "10px", width: "15%" }}
           type="text"
@@ -117,6 +131,7 @@ function VendorProfile() {
           }
         />
         <br />
+        <b> Contact :</b>
         <input
           style={{ border: "2px solid Green", margin: "10px", width: "15%" }}
           type="text"
