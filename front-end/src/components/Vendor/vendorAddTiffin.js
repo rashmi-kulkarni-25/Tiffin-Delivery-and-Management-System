@@ -64,45 +64,55 @@ function VendorAddTiffin(props) {
       <center>
         <br />
         <h1>Add Tiffin</h1>
+        <br />
+        <input
+          style={{ margin: "10px" }}
+          type="radio"
+          value="Veg"
+          checked={tiffinCategory === "Veg"}
+          onChange={(e) => setCategory(e.target.value)}
+        />{" "}
+        Veg
+        <input
+          style={{ margin: "10px" }}
+          type="radio"
+          value="Non-Veg"
+          checked={tiffinCategory === "Non-Veg"}
+          onChange={(e) => setCategory(e.target.value)}
+        />{" "}
+        Non-Veg
+        <br />
         <form onSubmit={(e) => e.preventDefault()}>
+          <b style={{ verticalAlign: "5px" }}>Name: </b>
           <input
-            style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
+            style={{
+              border: "2px solid Green",
+              margin: "10px",
+              width: "30%",
+              marginLeft: "50px",
+            }}
             type="text"
             placeholder="Tiffin Name"
             value={tiffinName}
             onChange={(e) => setTiffinName(e.target.value)}
           />
           <br />
-          <input
+          <b style={{ verticalAlign: "30px" }}>Description: </b>
+          <textarea
             style={{
               border: "2px solid Green",
               margin: "10px",
               width: "30%",
-              height: "150px",
+              marginLeft: "15px",
             }}
             type="text"
             placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+
           <br />
-          <input
-            style={{ margin: "10px" }}
-            type="radio"
-            value="Veg"
-            checked={tiffinCategory === "Veg"}
-            onChange={(e) => setCategory(e.target.value)}
-          />{" "}
-          Veg
-          <input
-            style={{ margin: "10px" }}
-            type="radio"
-            value="Non-Veg"
-            checked={tiffinCategory === "Non-Veg"}
-            onChange={(e) => setCategory(e.target.value)}
-          />{" "}
-          Non-Veg
-          <br />
+          <b style={{ verticalAlign: "5px" }}>Image Link: </b>
           <input
             style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
             type="text"
@@ -111,16 +121,26 @@ function VendorAddTiffin(props) {
             onChange={(e) => setImageLink(e.target.value)}
           />
           <br />
+          <b style={{ verticalAlign: "5px" }}>Price: </b>
           <input
-            style={{ border: "2px solid Green", margin: "10px" }}
+            style={{
+              border: "2px solid Green",
+              margin: "10px",
+              marginLeft: "60px",
+            }}
             type="text"
             placeholder="Price"
             value={tiffinPrice}
             onChange={(e) => setPrice(e.target.value)}
           />
           <br />
+          <b style={{ verticalAlign: "5px" }}>Vendor Id: </b>
           <input
-            style={{ border: "2px solid Green", margin: "10px" }}
+            style={{
+              border: "2px solid Green",
+              margin: "10px",
+              marginLeft: "30px",
+            }}
             type="text"
             placeholder="Vendor Id"
             value={vendorId}

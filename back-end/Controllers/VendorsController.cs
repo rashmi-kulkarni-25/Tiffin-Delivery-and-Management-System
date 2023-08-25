@@ -116,6 +116,7 @@ namespace NutritiffBackendDotNet.Controllers
                 tiffinToUpdate.TiffinCategory = tiffin.TiffinCategory;
                 tiffinToUpdate.TiffinPrice = tiffin.TiffinPrice;
                 tiffinToUpdate.ImageLink = tiffin.ImageLink;
+                tiffinToUpdate.Status = tiffin.Status;
                 _context.SaveChanges();
                 return new ActionResult<Tiffin>(tiffinToUpdate);
             }

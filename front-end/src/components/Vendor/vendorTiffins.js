@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import config from "../../config";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
-import EditIcon from "@mui/icons-material/Edit";
 import { toast } from "react-toastify";
+import { PencilSquare } from "react-bootstrap-icons";
 
 function VendorTiffins(props) {
   const vendorId = sessionStorage.getItem("vendorId");
@@ -30,7 +28,7 @@ function VendorTiffins(props) {
         if (response.status === 200) {
           console.log("response.data: ", response.data);
           setTiffins(response.data);
-          toast.success("Fetched tiffins successfully!");
+          // toast.success("Fetched tiffins successfully!");
         } else {
           console.log("Failed to get tiffins response: ", response);
           toast.error("Failed to get tiffins!");
@@ -81,9 +79,8 @@ function VendorTiffins(props) {
           <center>
             <div className="card-containerCard">
               {tiffins.map((tiffin) => (
-                <center>
+                <center key={tiffin.tiffinId}>
                   <Card
-                    key={tiffin.tiffinId}
                     style={{
                       width: "30rem",
                       marginBottom: "50px",
@@ -94,8 +91,12 @@ function VendorTiffins(props) {
                   >
                     <Card.Body>
                       <Card.Title style={{ color: "darkgreen" }}>
-                        <h1>{tiffin.tiffinName}</h1>
+                        <h1 style={{ marginBottom: 0 }}>
+                          {tiffin.tiffinName}{" "}
+                        </h1>
+                        {`(${tiffin.status})`}
                       </Card.Title>
+                      <br />
                       <Card.Img
                         variant="top"
                         src={tiffin.imageLink}
@@ -114,19 +115,23 @@ function VendorTiffins(props) {
 
                       {/* <Card.Text>{tiffin.status}</Card.Text> */}
 
-                      <CardActions style={{ justifyContent: "center" }}>
-                        <IconButton
-                          aria-label="add to favorites"
+                      <Button
+                        style={{
+                          backgroundColor: "rgba(0, 0, 0, 0)",
+                          border: "0",
+                        }}
+                        data-tiffinId={tiffin.tiffinId}
+                        onClick={editTiffin}
+                      >
+                        <PencilSquare
                           data-tiffinId={tiffin.tiffinId}
                           onClick={editTiffin}
-                        >
-                          <EditIcon
-                            data-tiffinId={tiffin.tiffinId}
-                            color="primary"
-                          />
-                        </IconButton>
-                      </CardActions>
+                          color="darkgreen"
+                          size={30}
+                        />
+                      </Button>
                     </Card.Body>
+                    <br />
                   </Card>
                 </center>
               ))}

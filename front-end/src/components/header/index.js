@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 import "./header.css";
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <div>
       <nav>
@@ -26,7 +29,16 @@ function Header() {
             <Link to="/vendor-feedbacks">Feedbacks and Complaints</Link>
           </li>
           <li>
-            <Link to="/vendor-login">Logout</Link>
+            <Button
+              onClick={() => {
+                // TODO: Clear all the session items in the application
+                sessionStorage.clear();
+                navigate("/vendor-login");
+                toast.success("Logged out successfully!");
+              }}
+            >
+              Logout
+            </Button>
           </li>
           <li>
             <Link to="/vendor-login">Login</Link>

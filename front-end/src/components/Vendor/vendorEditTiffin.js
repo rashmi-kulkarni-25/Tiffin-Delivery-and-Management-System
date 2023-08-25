@@ -13,10 +13,7 @@ function EditTiffin(props) {
 
   console.log("tiffinToEdit: ", tiffinToEdit);
   const [tiffin, setTiffin] = useState(tiffinToEdit);
-  // const [description, setDescription] = useState("");
-  // const [tiffinCategory, setCategory] = useState("");
-  // const [tiffinPrice, setPrice] = useState("");
-  // const [imageLink, setImageLink] = useState("");
+  const [editable, setEditable] = useState(false);
 
   const navigate = useNavigate();
   const handleEditTiffin = () => {
@@ -44,28 +41,75 @@ function EditTiffin(props) {
   return (
     <div className="containerCard">
       <center>
-        <h1>Edit Tiffin</h1>
-        <input
-          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
-          type="text"
-          placeholder="Tiffin Name"
-          value={tiffin.tiffinName}
-          onChange={(e) => setTiffin({ ...tiffin, tiffinName: e.target.value })}
-        />
         <br />
+        <h1>Edit Tiffin</h1>
+        <br />
+        <b> Status :</b>
+        <input
+          style={{ margin: "10px" }}
+          type="radio"
+          value="Active"
+          onChange={(e) =>
+            setTiffin({ ...tiffin, tiffinStatus: e.target.value })
+          }
+        />{" "}
+        Active
+        <input
+          style={{ margin: "10px" }}
+          type="radio"
+          value="Inactive"
+          onChange={(e) =>
+            setTiffin({ ...tiffin, tiffinStatus: e.target.value })
+          }
+        />{" "}
+        Inactive
+        <br />
+        <b>Name :</b>
         <input
           style={{
             border: "2px solid Green",
             margin: "10px",
             width: "30%",
+            marginLeft: "50px",
+          }}
+          type="text"
+          placeholder="Tiffin Name"
+          value={tiffin.tiffinName}
+          readOnly={!editable}
+          onChange={(e) => setTiffin({ ...tiffin, tiffinName: e.target.value })}
+        />
+        <br />
+        <b style={{ verticalAlign: "30px" }}> Description :</b>
+        <textarea
+          style={{
+            border: "2px solid Green",
+            margin: "10px",
+            width: "30%",
             height: "150px",
+            marginLeft: "20px",
           }}
           type="text"
           placeholder="Description"
           value={tiffin.description}
+          readOnly={!editable}
           onChange={(e) =>
             setTiffin({ ...tiffin, description: e.target.value })
           }
+        />
+        <br />
+        <b>Image Link: </b>
+        <input
+          style={{
+            border: "2px solid Green",
+            margin: "10px",
+            width: "30%",
+            marginLeft: "20px",
+          }}
+          type="text"
+          placeholder="Image Link"
+          value={tiffin.imageLink}
+          readOnly={!editable}
+          onChange={(e) => setTiffin({ ...tiffin, imageLink: e.target.value })}
         />
         <br />
         <input
@@ -89,42 +133,42 @@ function EditTiffin(props) {
         />{" "}
         Non-Veg
         <br />
+        <b> Price :</b>
         <input
-          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
+          style={{
+            border: "2px solid Green",
+            margin: "10px",
+            marginLeft: "5px",
+          }}
           type="text"
           placeholder="Price"
           value={tiffin.tiffinPrice}
+          readOnly={!editable}
           onChange={(e) =>
             setTiffin({ ...tiffin, tiffinPrice: e.target.value })
           }
         />
         <br />
-        <input
-          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
-          type="text"
-          placeholder="Image Link"
-          value={tiffin.imageLink}
-          onChange={(e) => setTiffin({ ...tiffin, imageLink: e.target.value })}
-        />
-        <br />
-        <input
-          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
-          type="text"
-          placeholder="Image Link"
-          value={tiffin.status}
-          onChange={(e) => setTiffin({ ...tiffin, status: e.target.value })}
-        />
         <br />
         <br />
-        <br />
-        <button
+        {/* <button
           onClick={() => navigate("/vendor-tiffins")}
           className="add-button"
         >
           Cancel
+        </button> */}
+        <button
+          onClick={() => setEditable(!editable)} // Toggle editable state
+          className="add-button"
+        >
+          {editable ? "Cancel Edit" : "Edit"}
         </button>
         <span style={{ marginLeft: "10px", marginRight: "10px" }}></span>
-        <button onClick={handleEditTiffin} className="add-button">
+        <button
+          onClick={handleEditTiffin}
+          className="add-button"
+          disabled={!editable} // Disable the button when not editable
+        >
           Update
         </button>
       </center>

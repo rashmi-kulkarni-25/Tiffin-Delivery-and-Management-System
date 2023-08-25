@@ -22,7 +22,7 @@ function MyOrders(props) {
         if (response.status === 200) {
           setOrders(response.data);
           console.log("response.data: ", response.data);
-          toast.success("Fetched your orders!");
+          // toast.success("Fetched your orders!");
         } else {
           toast.error("Failed while getting vendor orders!");
         }
