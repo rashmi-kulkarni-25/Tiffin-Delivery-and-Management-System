@@ -69,8 +69,9 @@ function VendorTiffins(props) {
     <center>
       <div className="containerCard">
         <center>
+          <br />
           <h1>Tiffins</h1>
-          <hr style={{ color: "greenyellow" }} />
+          {/* <hr style={{ color: "greenyellow" }} /> */}
           <button className="add-button" onClick={addTiffin}>
             <h4>Add Tiffin</h4>
           </button>

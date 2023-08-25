@@ -38,9 +38,9 @@ function VendorFeedbacks(props) {
   return (
     <div className="containerCard">
       <center>
+        <br />
         <h1>Feedbacks and Complaints</h1>
       </center>
-      <hr />
       <br />
       <ul>
         {feedbacks.map((feedback) => (

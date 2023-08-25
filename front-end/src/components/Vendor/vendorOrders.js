@@ -36,9 +36,9 @@ function MyOrders(props) {
   return (
     <div className="containerCard">
       <center>
+        <br />
         <h1>My Orders</h1>
       </center>
-      <hr />
       <br />
       <ul>
         {orders.map((order) => (

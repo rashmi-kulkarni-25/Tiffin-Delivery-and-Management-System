@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "CcvC8Efa5d9zzhEcSQnmzNPF1gjBXCMyRTmXF68vcpc=",
+  "Source": "NutritiffBackendDotNet",
+  "BasePath": "_content/NutritiffBackendDotNet",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

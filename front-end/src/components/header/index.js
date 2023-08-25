@@ -1,19 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./header.css";
 
 function Header() {
   return (
     <div>
       <nav>
-        <ul>
-          <li>
-            <Link to="/vendor-register">VendorRegister</Link>
-          </li>
-          <br />
-          <li>
-            <Link to="/vendor-login">VendorLogin</Link>
-          </li>
-          <br />
+        <ul className="horizontal-links">
           {/* <li>
             <Link to="/vendor-dashboard">Dashboard</Link>
           </li> */}
@@ -31,6 +24,15 @@ function Header() {
           </li>
           <li>
             <Link to="/vendor-feedbacks">Feedbacks and Complaints</Link>
+          </li>
+          <li>
+            <Link to="/vendor-login">Logout</Link>
+          </li>
+          <li>
+            <Link to="/vendor-login">Login</Link>
+          </li>
+          <li>
+            <Link to="/vendor-register">Register</Link>
           </li>
         </ul>
       </nav>

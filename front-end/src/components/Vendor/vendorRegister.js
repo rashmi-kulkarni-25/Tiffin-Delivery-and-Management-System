@@ -47,6 +47,7 @@ function VendorRegister() {
   return (
     <div className="containerCard">
       <center>
+        <br />
         <h1>Register</h1> <br />
         <input
           style={{

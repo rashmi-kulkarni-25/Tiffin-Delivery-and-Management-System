@@ -54,6 +54,7 @@ function VendorLogin() {
   return (
     <div className="containerCard">
       <center>
+        <br />
         <h1>Login</h1> <br />
         <input
           style={{

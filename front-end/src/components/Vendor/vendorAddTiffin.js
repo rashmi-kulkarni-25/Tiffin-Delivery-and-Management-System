@@ -5,6 +5,7 @@ import "./styles.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+//import VendorNavbar from "../header/vendorNavbar";
 
 function VendorAddTiffin(props) {
   const vendorId = sessionStorage.getItem("vendorId");
@@ -59,7 +60,9 @@ function VendorAddTiffin(props) {
 
   return (
     <div className="containerCard">
+      {/* <VendorNavbar /> */}
       <center>
+        <br />
         <h1>Add Tiffin</h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <input

@@ -58,6 +58,7 @@ function VendorProfile() {
   return (
     <div className="containerCard">
       <center>
+        <br />
         <h1>Vendor Profile</h1>
         <input
           style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
