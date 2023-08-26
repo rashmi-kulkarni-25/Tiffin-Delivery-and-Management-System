@@ -172,22 +172,8 @@ function EditTiffin(props) {
           }
         />
         <br />
-        {/* <input
-          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
-          type="text"
-          placeholder="Image Link"
-          value={tiffin.status}
-          readOnly={!editable}
-          onChange={(e) => setTiffin({ ...tiffin, status: e.target.value })}
-        /> */}
         <br />
         <br />
-        {/* <button
-          onClick={() => navigate("/vendor-tiffins")}
-          className="add-button"
-        >
-          Cancel
-        </button> */}
         <button
           onClick={() => setEditable(!editable)} // Toggle editable state
           className="add-button"

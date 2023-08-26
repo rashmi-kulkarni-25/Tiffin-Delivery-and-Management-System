@@ -422,6 +422,3 @@ function VendorChangePassword() {
 }
 
 export default VendorChangePassword;
-
-//1. orders + feedback UI
-//2. orders status (deliver button) >> change status db and remove from my orders
