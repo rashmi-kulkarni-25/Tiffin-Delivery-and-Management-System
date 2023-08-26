@@ -27,6 +27,10 @@ function EditTiffin(props) {
       .then((response) => {
         if (response.status === 200) {
           toast.success("Updated tiffin successfully!");
+          toast.success("Navigating you to tiffins page");
+          setTimeout(() => {
+            navigate("/vendor-tiffins");
+          }, 3000);
         } else {
           console.log("Failed to update tiffin response: ", response);
           toast.error("Failed to update tiffin!");
@@ -48,7 +52,8 @@ function EditTiffin(props) {
         <input
           style={{ margin: "10px" }}
           type="radio"
-          value="Active"
+          value="active"
+          name="tiffinStatus"
           onChange={(e) =>
             setTiffin({ ...tiffin, tiffinStatus: e.target.value })
           }
@@ -57,7 +62,8 @@ function EditTiffin(props) {
         <input
           style={{ margin: "10px" }}
           type="radio"
-          value="Inactive"
+          value="inactive"
+          name="tiffinStatus"
           onChange={(e) =>
             setTiffin({ ...tiffin, tiffinStatus: e.target.value })
           }
@@ -70,7 +76,7 @@ function EditTiffin(props) {
             border: "2px solid Green",
             margin: "10px",
             width: "30%",
-            marginLeft: "50px",
+            marginLeft: "60px",
           }}
           type="text"
           placeholder="Tiffin Name"
@@ -115,7 +121,7 @@ function EditTiffin(props) {
         <input
           style={{ margin: "10px" }}
           type="radio"
-          value="Veg"
+          value="veg"
           checked={tiffin.tiffinCategory.toLowerCase() === "veg"}
           onChange={(e) =>
             setTiffin({ ...tiffin, tiffinCategory: e.target.value })
@@ -125,12 +131,12 @@ function EditTiffin(props) {
         <input
           style={{ margin: "10px" }}
           type="radio"
-          value="Non-Veg"
-          checked={tiffin.tiffinCategory.toLowerCase() === "non-neg"}
+          value="nonveg"
+          checked={tiffin.tiffinCategory.toLowerCase() === "nonveg"}
           onChange={(e) =>
             setTiffin({ ...tiffin, tiffinCategory: e.target.value })
           }
-        />{" "}
+        />
         Non-Veg
         <br />
         <b> Price :</b>
@@ -149,6 +155,31 @@ function EditTiffin(props) {
           }
         />
         <br />
+        <b>Status :</b>
+        <input
+          style={{
+            border: "2px solid Green",
+            margin: "10px",
+            width: "30%",
+            marginLeft: "50px",
+          }}
+          type="text"
+          placeholder="Tiffin Status"
+          value={tiffin.tiffinStatus}
+          readOnly
+          onChange={(e) =>
+            setTiffin({ ...tiffin, tiffinStatus: e.target.value })
+          }
+        />
+        <br />
+        {/* <input
+          style={{ border: "2px solid Green", margin: "10px", width: "30%" }}
+          type="text"
+          placeholder="Image Link"
+          value={tiffin.status}
+          readOnly={!editable}
+          onChange={(e) => setTiffin({ ...tiffin, status: e.target.value })}
+        /> */}
         <br />
         <br />
         {/* <button

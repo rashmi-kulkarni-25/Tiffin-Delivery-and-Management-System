@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const bgimage4 = "/images/bg4.jpg";
-
 function Home() {
   // var user = sessionStorage.getItem("user");
   var customerId = sessionStorage.getItem("customerId");
@@ -49,6 +48,46 @@ function Home() {
     helper.open("GET", url);
     helper.send();
   };
+
+  const getTiffins = (tiffinId) => {
+    debugger;
+    const url = createUrl("api/customers/cart");
+    axios
+      .post(url, {
+        customerId: customerId,
+        tiffinId: tiffinId,
+      })
+      .then((res) => {
+        debugger;
+        log(res.data);
+        toast.success("Added to cart");
+      });
+  };
+
+  //tried to get tiffins from cart using AXIOS
+  // useEffect(() => {
+  //   const responsePromise = axios.get(`${createaUrl}/api/customers/cart`, {
+  //     params: {
+  //       customerId: customerId,
+  //     },
+  //   });
+
+  //   responsePromise
+  //     .then((response) => {
+  //       if (response.status === 200) {
+  //         console.log("response.data: ", response.data);
+  //         setTiffins(response.data);
+  //         // toast.success("Fetched tiffins successfully!");
+  //       } else {
+  //         console.log("Failed to get tiffins response: ", response);
+  //         toast.error("Failed to load cart!");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log("Failed to add new tiffin!", error);
+  //       toast.error("Failed to load cart!");
+  //     });
+  // }, [customerId]);
 
   const addToCart = async (tiffinId) => {
     debugger;

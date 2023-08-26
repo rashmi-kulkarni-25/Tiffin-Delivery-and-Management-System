@@ -91,9 +91,7 @@ function VendorTiffins(props) {
                   >
                     <Card.Body>
                       <Card.Title style={{ color: "darkgreen" }}>
-                        <h1 style={{ marginBottom: 0 }}>
-                          {tiffin.tiffinName}{" "}
-                        </h1>
+                        <h1 style={{ marginBottom: 0 }}>{tiffin.tiffinName}</h1>
                         {`(${tiffin.status})`}
                       </Card.Title>
                       <br />

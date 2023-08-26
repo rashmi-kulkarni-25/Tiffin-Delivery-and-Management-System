@@ -12,6 +12,7 @@ import VendorFeedbacks from "./components/vendor/vendorFeedbacks";
 //import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import VendorHomePage from "./pages/VendorHomePage";
+import VendorChangePassword from "./components/vendor/vendorChangePassword";
 import Header from "./components/header";
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
           <Route path="/vendor-login" element={<VendorLogin />} />
           <Route path="/vendor-register" element={<VendorRegister />} />
           <Route path="/vendor-feedbacks" element={<VendorFeedbacks />} />
+          <Route
+            path="/vendor-changepassword"
+            element={<VendorChangePassword />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

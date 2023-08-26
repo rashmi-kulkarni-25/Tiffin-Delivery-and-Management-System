@@ -29,6 +29,16 @@ function Header() {
             <Link to="/vendor-feedbacks">Feedbacks and Complaints</Link>
           </li>
           <li>
+            <Link to="/vendor-changepassword">Change Password</Link>
+          </li>
+          <span style={{ marginLeft: "350px", marginRight: "250px" }}></span>
+          <li>
+            <Link to="/vendor-login">Login</Link>
+          </li>
+          <li>
+            <Link to="/vendor-register">Register</Link>
+          </li>
+          <li>
             <Button
               onClick={() => {
                 // TODO: Clear all the session items in the application
@@ -39,12 +49,6 @@ function Header() {
             >
               Logout
             </Button>
-          </li>
-          <li>
-            <Link to="/vendor-login">Login</Link>
-          </li>
-          <li>
-            <Link to="/vendor-register">Register</Link>
           </li>
         </ul>
       </nav>

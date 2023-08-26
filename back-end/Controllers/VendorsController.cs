@@ -323,7 +323,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //19
-        [HttpPatch("deliver")]
+        [HttpPatch("deliver/{orderId}")]
         public ActionResult<Order> Deliver(int orderId)
         {
             var orderToDeliver = _context.Orders.FirstOrDefault(

@@ -30,6 +30,12 @@ function VendorLogin() {
           const vendorId = response.data.vendorId;
           sessionStorage.setItem("vendorId", vendorId);
 
+          const email = response.data.email;
+          sessionStorage.setItem("email", email);
+
+          const password = response.data.password;
+          sessionStorage.setItem("password", password);
+
           setTimeout(() => {
             navigate("/vendor-profile");
           }, 4000);

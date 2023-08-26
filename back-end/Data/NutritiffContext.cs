@@ -379,7 +379,7 @@ public partial class NutritiffContext : DbContext
                 .HasColumnName("image_link");
             entity.Property(e => e.Status)
                 .HasMaxLength(10)
-                .HasDefaultValueSql("'active'")
+                .HasDefaultValueSql("active")
                 .HasColumnName("status");
             entity.Property(e => e.TiffinCategory)
                 .HasMaxLength(10)
