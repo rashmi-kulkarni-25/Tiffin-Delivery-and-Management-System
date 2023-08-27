@@ -9,6 +9,9 @@ import VendorOrders from "./components/vendor/vendorOrders";
 import VendorLogin from "./components/vendor/vendorLogin";
 import VendorRegister from "./components/vendor/vendorRegister";
 import VendorFeedbacks from "./components/vendor/vendorFeedbacks";
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
+
 //import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import VendorHomePage from "./pages/VendorHomePage";
@@ -35,6 +38,8 @@ function App() {
             path="/vendor-changepassword"
             element={<VendorChangePassword />}
           />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
     </BrowserRouter>
