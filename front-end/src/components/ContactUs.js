@@ -108,7 +108,7 @@ function ContactUs() {
           <hr />
           <br />
           <center>
-            <h2>Our Team</h2>
+            <h2 style={{ color: "gold" }}>Our Team</h2>
             <img src="/images/mrunal.jpeg" alt="mrunal" style={picStyle} />
             <span style={{ marginRight: "20px" }}></span>
             <img src="/images/rashmi.jpg" alt="rashmi" style={picStyle} />
