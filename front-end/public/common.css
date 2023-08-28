@@ -1,0 +1,9 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/bg4.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5;
+}
