@@ -1,13 +1,13 @@
-import { constants, constant } from './constants'
+import { dotNetConstants, nodejsConstants } from "./constants";
 
-export function createUrl(path) {
-    return constants.serverUrl + path
+export function createDotNetUrl(path) {
+  return dotNetConstants.serverUrl + path;
 }
 
-export function createaUrl(path) {
-    return constant.serverUrl + path
+export function createNodejsUrl(path) {
+  return nodejsConstants.serverUrl + path;
 }
 
 export function log(message) {
-    console.log(message)
+  console.log(message);
 }
