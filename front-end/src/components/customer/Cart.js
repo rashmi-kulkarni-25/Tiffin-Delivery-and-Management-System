@@ -155,7 +155,17 @@ function Cart() {
                     <div className="border border-4 p-3 bg-dark text-light">
                       <div className="row" style={{ height: "200px" }}>
                         <div className="col-md-4">
-                          <img src={tiffin.image_link} alt="..." />
+                          <img
+                            style={{
+                              content: "",
+                              position: "relative",
+                              width: "276px",
+                              height: "195px",
+                              paddingTop: "5px",
+                            }}
+                            src={tiffin.image_link}
+                            alt="..."
+                          />
                         </div>
                         <div className="col-md-4" style={{ marginTop: "30px" }}>
                           <h1>{tiffin.tiffin_name}</h1>

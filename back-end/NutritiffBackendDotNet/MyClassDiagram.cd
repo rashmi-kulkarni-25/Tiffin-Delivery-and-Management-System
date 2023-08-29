@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Nutritiff.Models.Admin">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.ApprovalRequest">
+    <Position X="2" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAIAAA=</HashCode>
+      <FileName>Models\ApprovalRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.Cart">
+    <Position X="7.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAAAAAAAAAAAAAAAAAAAAIABAAAAAAgAAACAA=</HashCode>
+      <FileName>Models\Cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.Customer">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEAAAQAACAAAADAAAAACAYAAAAAABACAQCAAAAAEAA=</HashCode>
+      <FileName>Models\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.DeliveryPerson">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAAABAAAACAAYAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DeliveryPerson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.Favorite">
+    <Position X="7.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEBAAAAAAAAAAAAAAAAAAAAAAAIABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Favorite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.FeedbackComplaint">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAEAAAgAAAAAAACAAAAAAAIABAIAAAAAAAACAA=</HashCode>
+      <FileName>Models\FeedbackComplaint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.Order">
+    <Position X="5.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAEAAEAAAAAACACAAAAAAAAQBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.OrderItem">
+    <Position X="5.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEBAAAAAQAAAAAAAAAAAAAAAAQIAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\OrderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.SubscriptionPlan">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAgAAAAAAAAAAQAAAAAAAAgAAIAACAAAAA=</HashCode>
+      <FileName>Models\SubscriptionPlan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.SubscriptionPurchase">
+    <Position X="2" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEBAAAAAAAACACAAAAAAAAABABAAAAACAAAAA=</HashCode>
+      <FileName>Models\SubscriptionPurchase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.Tiffin">
+    <Position X="3.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAEgAAAAAAAACAAAAAgIAABAAACCAAAIAUA=</HashCode>
+      <FileName>Models\Tiffin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nutritiff.Models.Vendor">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAFACAAAADAAAAAAAYAAAAAAAAiAAAAAAAIAAA=</HashCode>
+      <FileName>Models\Vendor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

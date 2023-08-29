@@ -1,10 +1,10 @@
-const mysql = require('mysql')
+const mysql = require("mysql2");
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'manager65',
-  database: 'nutritiffdb',
+  host: "localhost",
+  user: "root",
+  password: "manager",
+  database: "nutritiffdb",
   waitForConnections: true,
   connectionLimit: 10,
   maxIdle: 10,
@@ -12,6 +12,6 @@ const pool = mysql.createPool({
   queueLimit: 0,
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
-})
+});
 
-module.exports = pool
+module.exports = pool;
