@@ -3,7 +3,8 @@ const adminRouter = express.Router()
 const db = require('../db')
 
 //1
-//Login: /admin/login
+//To login admin
+//   /admin/login
 adminRouter.post('/login', (request, response) => {
     const statement = `select * from admin 
     where admin_id = ${request.body.admin_id} and password = '${request.body.password}'`
@@ -17,7 +18,8 @@ adminRouter.post('/login', (request, response) => {
   })
 
 //2
-//Approval Requests: /admin/approvalrequests
+//To display approval requests to admin
+//   /admin/approvalrequests
 adminRouter.get('/approvalrequests', (request, response) => {
     const statement = `select vendors.vendor_id, vendors.name, vendors.email, vendors.mob_no
     from vendors, approval_requests where approval_requests.vendor_id = vendors.vendor_id 
@@ -32,7 +34,8 @@ adminRouter.get('/approvalrequests', (request, response) => {
   })
 
 //3
-//Approved Vendors: /admin/approvedvendors
+//To display approved vendor's list
+//   /admin/approvedvendors
 adminRouter.get('/approvedvendors', (request, response) => {
     const statement = `select vendors.vendor_id, vendors.name, vendors.email, vendors.mob_no
     from vendors, approval_requests where approval_requests.vendor_id = vendors.vendor_id 
@@ -47,7 +50,8 @@ adminRouter.get('/approvedvendors', (request, response) => {
   })
 
 //4
-//Approve the vendor: /admin/approve
+//To approve the vendor
+//   /admin/approve
 adminRouter.put('/approve', (request, response) => {
     const statement = `update approval_requests set status = 'approved' 
     where vendor_id = ${request.body.vendor_id}`
@@ -61,7 +65,8 @@ adminRouter.put('/approve', (request, response) => {
   })
 
 //5
-//Approve the vendor: /admin/approvevendor
+//To approve the vendor
+//   /admin/approvevendor
 adminRouter.put('/approvevendor', (request, response) => {
     const statement = `update vendors set status = 'approved' 
     where vendor_id = ${request.body.vendor_id}`
@@ -74,8 +79,9 @@ adminRouter.put('/approvevendor', (request, response) => {
     })
   })
 
-  //4
-//Reject the vendor: /admin/reject
+  //7
+  //To reject the vendor
+//   /admin/reject
 adminRouter.put('/reject', (request, response) => {
   const statement = `update approval_requests set status = 'rejected' 
   where vendor_id = ${request.body.vendor_id}`
@@ -88,8 +94,9 @@ adminRouter.put('/reject', (request, response) => {
   })
 })
 
-//5
-//Reject the vendor: /admin/rejectvendor
+//8
+//To reject the vendor
+//   /admin/rejectvendor
 adminRouter.put('/rejectvendor', (request, response) => {
   const statement = `update vendors set status = 'rejected' 
   where vendor_id = ${request.body.vendor_id}`
@@ -102,8 +109,9 @@ adminRouter.put('/rejectvendor', (request, response) => {
   })
 })
 
-//6
-//Show feedback/complaints: /admin/feedbackcomplaints
+//9
+//To display feedbacks and complaints to admin
+//   /admin/feedbackcomplaints
 adminRouter.get('/feedbackcomplaints', (request, response) => {
     const statement = `select fc_id, customers.customer_id, tiffins.tiffin_name, vendors.name, 
     feedback_complaints.category, feedback_complaints.description from feedback_complaints,
@@ -119,8 +127,9 @@ adminRouter.get('/feedbackcomplaints', (request, response) => {
     })
   })
 
-//7
-//Show feedback/complaints: /admin/underreview
+//10
+//To display only 'under review' complaints
+//   /admin/underreview
 adminRouter.get('/underreview', (request, response) => {
     const statement = `select fc_id, customers.customer_id, tiffins.tiffin_name, vendors.name, 
     feedback_complaints.category, feedback_complaints.description from feedback_complaints,
@@ -136,8 +145,9 @@ adminRouter.get('/underreview', (request, response) => {
     })
   })
 
-//8
-//Show feedback/complaints: /admin/resolved
+//11
+//To display only 'resolved' complaits
+//   /admin/resolved
 adminRouter.get('/resolved', (request, response) => {
     const statement = `select fc_id, customers.customer_id, tiffins.tiffin_name, vendors.name, 
     feedback_complaints.category, feedback_complaints.description from feedback_complaints,
@@ -153,8 +163,9 @@ adminRouter.get('/resolved', (request, response) => {
     })
   })
 
-//9
-//Show feedback/complaints: /admin/escalated
+//12
+//To display only 'escalated' complaints
+//   /admin/escalated
 adminRouter.get('/escalated', (request, response) => {
     const statement = `select fc_id, customers.customer_id, tiffins.tiffin_name, vendors.name, 
     feedback_complaints.category, feedback_complaints.description from feedback_complaints,
@@ -170,8 +181,9 @@ adminRouter.get('/escalated', (request, response) => {
     })
   })
 
-//10
-//resolve complaint: /admin/resolve
+//13
+//To mark the complaint as 'resolved'
+//   /admin/resolve
 adminRouter.put('/resolve', (request, response) => {
     const statement = `update feedback_complaints set status = 'resolved' 
     where fc_id = ${request.body.fc_id}`
@@ -184,8 +196,9 @@ adminRouter.put('/resolve', (request, response) => {
     })
   })
 
-//11
-//escalate complaint: /admin/escalate
+//14
+//To mark the complaint as 'escalated'
+//   /admin/escalate
 adminRouter.put('/escalate', (request, response) => {
     const statement = `update feedback_complaints set status = 'escalated' 
     where fc_id = ${request.body.fc_id}`
@@ -198,8 +211,9 @@ adminRouter.put('/escalate', (request, response) => {
     })
   })
 
-//12
-//subscription plans: /admin/plans
+//15
+//To display subscription plans
+//   /admin/plans
 adminRouter.get('/plans', (request, response) => {
   const statement = `select * from subscription_plans`
   db.query(statement, (error, data) => {
@@ -211,8 +225,9 @@ adminRouter.get('/plans', (request, response) => {
   })
 })
 
-//13
-//subscription plans: /admin/addplan
+//16
+//To add new suncription plan
+//   /admin/addplan
 adminRouter.post('/addplan', (request, response) => {
   const statement = `insert into subscription_plans values (default, '${request.body.name}',
   '${request.body.description}', ${request.body.price}, ${request.body.no_of_meals})`
@@ -225,7 +240,9 @@ adminRouter.post('/addplan', (request, response) => {
   })
 })
 
-//get plan by id
+//17
+//To get details of subscription plan by planId
+//   /admin/getplanbyid
 adminRouter.post('/getplanbyid', (request, response) => {
   const statement = `select * from subscription_plans where plan_id = ${request.body.id}`
   db.query(statement, (error, data) => {
@@ -238,8 +255,9 @@ adminRouter.post('/getplanbyid', (request, response) => {
 })
 
 
-//14
-//subscription plans: /admin/updateplan
+//18
+//To edit subscription plan details
+//   /admin/updateplan
 adminRouter.put('/updateplan', (request, response) => {
   const statement = `update subscription_plans set name = '${request.body.name}', 
   description = '${request.body.description}', price = ${request.body.price},
@@ -253,8 +271,9 @@ adminRouter.put('/updateplan', (request, response) => {
   })
 })
 
-//15
-//subscription plans: /admin/deleteplan
+//19
+//To remove the subscription plan
+//   /admin/deleteplan
 adminRouter.delete('/deleteplan', (request, response) => {
   const statement = `delete from subscription_plans where plan_id = ${request.body.plan_id}`
   db.query(statement, (error, data) => {
@@ -266,8 +285,9 @@ adminRouter.delete('/deleteplan', (request, response) => {
   })
 })
 
-//16
-//subscription purchases: /admin/subscriptions
+//20
+//To display subscription purchase history
+//   /admin/subscriptions
 adminRouter.get('/subscriptions', (request, response) => {
   const statement = `select * from subscription_purchases`
   db.query(statement, (error, data) => {
@@ -279,8 +299,9 @@ adminRouter.get('/subscriptions', (request, response) => {
   })
 })
 
-//17
-//show orders: /admin/orders
+//21
+//To display order's history
+//   /admin/orders
 adminRouter.get('/orders', (request, response) => {
   const statement = `select * from orders`
   db.query(statement, (error, data) => {
@@ -292,7 +313,9 @@ adminRouter.get('/orders', (request, response) => {
   })
 })
 
-//show revenue current year: /admin/orders
+//22
+//To display the revenue of year from individual orders
+//   /admin/sumofrevenuebyyear
 adminRouter.get('/sumofrevenuebyyear', (request, response) => {
   const statement = `select sum(price) as sum from subscription_purchases, subscription_plans where subscription_plans.plan_id = subscription_purchases.plan_id
   and year(subscription_purchases.timestamp) = year(now());`

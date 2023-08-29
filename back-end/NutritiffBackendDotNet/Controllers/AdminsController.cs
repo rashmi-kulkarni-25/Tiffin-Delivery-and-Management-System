@@ -18,6 +18,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //1
+        //To login the admin
         [HttpPost("login")]
         public ActionResult<Admin> Login([FromBody] String password)
         {
@@ -31,6 +32,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //2
+        //To see the pending approval requests came from vendors
         [HttpGet("showpendingrequests")]
         public IEnumerable<Request> ShowPendingRequests()
         {
@@ -53,6 +55,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //3
+        //To see the whole request history
         [HttpGet("showrequesthistory")]
         public IEnumerable<Request> ShowRequestHistory()
         {
@@ -74,6 +77,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //4
+        //To approve the vendor based on approval request
         [HttpPatch("approve")]
         [Produces("application/json")]
         public ActionResult<ApprovalRequest> ApproveTheVendor(int vendorId)
@@ -94,6 +98,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //5
+        //To reject the vendor based on approval request
         [HttpPatch("reject")]
         public ActionResult<ApprovalRequest> RejectTheVendor(int vendorId)
         {
@@ -113,6 +118,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //6
+        //To see the approved vendor's list
         [HttpGet("showapprovedvendors")]
         public IEnumerable<Vendor> ShowApprovedVendors()
         {
@@ -120,6 +126,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //7
+        //To see all feedbacks and compaints received from customers
         [HttpGet("showallfeedbacks")]
         public IEnumerable<FeedbacksToDisplay> ShowAllFeedbacks()
         {
@@ -143,6 +150,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //8
+        //To see only feedbacks received from customers
         [HttpGet("showonlyfeedbacks")]
         public IEnumerable<FeedbacksToDisplay> ShowOnlyFeedbacks()
         {
@@ -167,6 +175,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //9
+        //To see only compalints received from customers
         [HttpGet("showonlycomplaints")]
         public IEnumerable<FeedbacksToDisplay> ShowOnlyComplaints()
         {
@@ -191,6 +200,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //10
+        //To see only 'under review compaints' received from customers
         [HttpGet("showunderreviewcomplaints")]
         public IEnumerable<FeedbacksToDisplay> ShowUnderReviewComplaints()
         {
@@ -215,6 +225,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //11
+        //To see only 'resolved complaints' received from customers
         [HttpGet("showresolvedcomplaints")]
         public IEnumerable<FeedbacksToDisplay> ShowResolvedComplaints()
         {
@@ -239,6 +250,8 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //12
+        //To see only 'escalated compalints' received from customers
+
         [HttpGet("showescalatedcomplaints")]
         public IEnumerable<FeedbacksToDisplay> ShowEscalatedComplaints()
         {
@@ -263,6 +276,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //13
+        //To mark the compaint as resolved
         [HttpPatch("resolvecomplaint")]
         public ActionResult<FeedbackComplaint> ResolveComplaint(int complaintId)
         {
@@ -278,6 +292,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //14
+        //To mark the compaint as escalated
         [HttpPatch("escalatecomplaint")]
         public ActionResult<FeedbackComplaint> EscalateComplaint(int complaintId)
         {
@@ -293,6 +308,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //15
+        //To see the subscription plan's list
         [HttpGet("subscriptionplans")]
         public IEnumerable<SubscriptionPlan> GetAllPlans()
         {
@@ -300,6 +316,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //16
+        //To add a new subscription plan
         [HttpPost("addplan")]
         public ActionResult<SubscriptionPlan> AddPlan([FromBody] SubscriptionPlan plan)
         {
@@ -309,6 +326,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //17
+        //To get the subscription plan details by planId
         [HttpPost("getplanbyid")]
         public ActionResult<SubscriptionPlan> GetPlanById(int planId)
         {
@@ -322,6 +340,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //18
+        //To edit the subscription plan details
         [HttpPatch("updateplan")]
         public ActionResult<SubscriptionPlan> UpdatePlan([FromBody] SubscriptionPlan plan)
         {
@@ -340,6 +359,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //19
+        //To remove the subscription plan
         [HttpDelete("deleteplan")]
         public ActionResult<SubscriptionPlan> DeletePlan(int planId)
         {
@@ -356,6 +376,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //20
+        //To see the subscription purchase history
         [HttpGet("getpurchasehistory")]
         public IEnumerable<SubscriptionPurchase> GetPurchaseHistory()
         {
@@ -363,6 +384,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //21
+        //To see the order's history
         [HttpGet("getordershistory")]
         public IEnumerable<OrdersHistory> GetOrdersHistory()
         {
@@ -387,6 +409,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //22
+        //To seet the revenue generated by individual orderes by month
         [HttpGet("getrevenuebymonth")]
         public double GetRevenueByMonth(int month)
         {
@@ -398,6 +421,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //23
+        //To seet the revenue generated by individual orderes by current month
         [HttpGet("getrevenuebycurrentmonth")]
         public double GetRevenueByCurrentMonth()
         {
@@ -410,6 +434,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //24
+        //To seet the revenue generated by individual orderes by year
         [HttpGet("getrevenuebyyear")]
         public double GetRevenueByYear(int year)
         {
@@ -420,6 +445,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //25
+        //To seet the revenue generated by subscription purchases orderes by month
         [HttpGet("sumofrevenuebymonth")]
         public double SumOfRevenueByMonth(int month)
         {
@@ -431,6 +457,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //26
+        //To seet the revenue generated by subscription purchases orderes by current month
         [HttpGet("sumofrevenuebycurrentmonth")]
         public double SumOfRevenueByCurrentMonth()
         {
@@ -443,6 +470,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //27
+        //To seet the revenue generated by subscription purchases orderes by year
         [HttpGet("sumofrevenuebyyear")]
         public double SumOfRevenueByYear(int year)
         {

@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db = require('../db')
 
+//deprecated
 router.get('/', (request, response) => {
   const statement = `select tiffin_name, description, tiffin_category, tiffin_price from tiffins
                         where status = 'active'`
@@ -14,6 +15,7 @@ router.get('/', (request, response) => {
   })
 })
 
+//deprecated
 router.get('/:id', (request, response) => {
     const statement = `select tiffin_name, description, tiffin_category, tiffin_price from tiffins
                           where status = 'active' and tiffin_id = ${request.params.id}`;
@@ -26,6 +28,7 @@ router.get('/:id', (request, response) => {
     })
   })
 
+//deprecated
   router.post('/', (request, response) => {
     const statement = `insert into tiffins values(default, '${request.body.tiffin_name}', '${request.body.description}'
     ,'${request.body.tiffin_category}', ${request.body.tiffin_price}, '${request.body.vendor_id}', default)`;
@@ -38,6 +41,7 @@ router.get('/:id', (request, response) => {
     })
 })
 
+//deprecated
 router.delete('/:id', (request, response) => {
     const statement = `update tiffins set status = 'inactive' where tiffin_id = ${request.params.id}`;
     db.query(statement, (error, data) => {
@@ -49,6 +53,7 @@ router.delete('/:id', (request, response) => {
     })
 })
 
+//deprecated
 router.put('/:id', (request, response) => {
     const statement = `update tiffins set tiffin_name='${request.body.tiffin_name}',
     description = '${request.body.description}', tiffin_category =  '${request.body.tiffin_category}'

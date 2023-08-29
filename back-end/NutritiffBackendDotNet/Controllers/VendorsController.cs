@@ -18,6 +18,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //1
+        //To login the vendor
         [HttpPost("login")]
         public ActionResult<Vendor> Login([FromBody] VendorBody vendor)
         {
@@ -34,6 +35,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //2
+        //To register the vendor
         [HttpPost("register")]
         public ActionResult<Vendor> Register([FromBody] Vendor vendor)
         {
@@ -43,6 +45,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //3
+        //To display the the tiffins ordered by the customer
         [HttpPost("myorders")]
         public IEnumerable<ShowOrder> ShowMyOrders([FromBody] int vendorId)
         {
@@ -68,6 +71,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //4
+        //To display vendor's tiffins
         [HttpGet("mytiffins")]
         public IEnumerable<Tiffin> ShowMyTiffins(int vendorId)
         {
@@ -77,6 +81,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //5
+        //To add new tiffin
         [HttpPost("addtiffin")]
         public ActionResult<Tiffin> AddTiffin([FromBody] Tiffin tiffin)
         {
@@ -86,6 +91,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //6
+        //To get the tiffin details by tiffinId
         [HttpPost("gettiffin")]
         public ActionResult<Tiffin> GetTffinById([FromBody] int tiffinId)
         {
@@ -99,6 +105,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //7
+        //To edit tiffin details
         [HttpPatch("updatetiffin")]
         public ActionResult<Tiffin> UpdateTiffin([FromBody] Tiffin tiffin)
         {
@@ -118,6 +125,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //8
+        //To mark the tiffin as inactive
         [HttpPatch("deletetiffin")]
         public ActionResult<Tiffin> DeleteTiffin([FromBody] int tiffinId)
         {
@@ -133,6 +141,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //9
+        //To active the tiffin
         [HttpPatch("activethetiffin")]
         public ActionResult<Tiffin> ActiveTheTiffin([FromBody] int tiffinId)
         {
@@ -148,6 +157,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //10
+        //To get the vendor's details by vendorId
         [HttpPost("getvendorbyid")]
         public ActionResult<Vendor> GetVendorById([FromBody] int vendorId)
         {
@@ -162,6 +172,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //11
+        //To edit the vendor's details
         [HttpPatch("updateprofile")]
         public ActionResult<Vendor> UpdateProfile([FromBody] Vendor vendor)
         {
@@ -181,6 +192,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //12
+        //To change vendor's password
         [HttpPatch("changepassword")]
         public ActionResult<Vendor> ChangePassword(int vendorId, [FromBody] String password)
         {
@@ -196,6 +208,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //13
+        //To show the feedbacks and complaints against the vendor
         [HttpPost("showfeedbacks")]
         public IEnumerable<FeedbacksToDisplay> ShowFeedbacks(int vendorId)
         {
@@ -218,6 +231,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //14
+        //To show only 'under review' complaints
         [HttpPost("showunderreviewfeedbacks")]
         public IEnumerable<FeedbacksToDisplay> ShowUnderReviewFeedbacks(int vendorId)
         {
@@ -240,6 +254,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //15
+        //To show only 'escalated' complaints
         [HttpPost("showescalatedfeedbacks")]
         public IEnumerable<FeedbacksToDisplay> ShowEscalatedFeedbacks(int vendorId)
         {
@@ -262,6 +277,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //16
+        //To show only feedbacks
         [HttpPost("showeonlyfeedbacks")]
         public IEnumerable<FeedbacksToDisplay> ShowOnlyFeedbacks(int vendorId)
         {
@@ -284,6 +300,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //17
+        //To show only complaints
         [HttpPost("showeonlycomplaints")]
         public IEnumerable<FeedbacksToDisplay> ShowOnlyComplaints(int vendorId)
         {
@@ -308,6 +325,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //18
+        //To send the approval request to admin
         [HttpPost("sendapprovalrequest")]
         public ActionResult<ApprovalRequest> SendApprovalRequest([FromBody] ApprovalRequest request)
         {
@@ -317,6 +335,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //19
+        //To mark the tiffin as delivered
         [HttpPatch("deliver")]
         public ActionResult<Order> Deliver(int orderId)
         {

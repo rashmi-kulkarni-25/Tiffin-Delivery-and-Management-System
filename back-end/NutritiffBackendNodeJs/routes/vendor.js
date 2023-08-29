@@ -6,19 +6,8 @@ const multer = require('multer')
 const upload = multer({dest: 'uploads'})
 
 //1
-//Login: /vendor/login
-// vendorRouter.post('/login', (request, response) => {
-//     const statement = `select vendor_id, name, email, password from vendors 
-//     where email = '${request.body.email}' and password = '${request.body.password}'`
-//     db.query(statement, (error, data) => {
-//       if (error) {
-//         response.send('error')
-//       } else {
-//         response.send(data)
-//       }
-//     })
-//   })
-
+//To login the vendor
+//   /vendor/login
   vendorRouter.post('/login', (request, response) => {
     const statement = `SELECT *
     FROM vendors
@@ -40,9 +29,9 @@ const upload = multer({dest: 'uploads'})
   })
 
   
-
 //2
-//Register: /vendor/register
+//To register the vendor
+//   /vendor/register
 vendorRouter.post('/register', (request, response) => {
     const statement = `insert into vendors values(default,'${request.body.name}',
     '${request.body.address}','${request.body.pincode}','${request.body.email}',
@@ -57,19 +46,8 @@ vendorRouter.post('/register', (request, response) => {
   })
 
 //3
-//Vendor Home: /vendor/home
-// vendorRouter.get('/mytiffins', (request, response) => {
-//     const statement = `select * from tiffins where vendor_id = ${request.body.vendor_id} 
-//     and status = 'active'`
-//     db.query(statement, (error, data) => {
-//       if (error) {
-//         response.send('error')
-//       } else {
-//         response.send(data)
-//       }
-//     })
-//   })
-
+//To display the tiffins of vendor
+//   /vendor/getmytiffins
 vendorRouter.post('/getmytiffins', (request, response) => {
   const statement = `select * from tiffins where vendor_id = ${request.body.vendor_id} and status = 'active'`
   db.query(statement, (error, data) => {
@@ -81,6 +59,9 @@ vendorRouter.post('/getmytiffins', (request, response) => {
   })
 })
 
+//4
+//To display orders that are still in 'ordered' status
+//   /vendor/getmyorders
   vendorRouter.post('/getmyorders', (request, response) => {
     const statement = `select orders.order_id, customers.name, customers.home_address, 
     customers.work_address, vendors.name as vendor_name, tiffins.tiffin_name,
@@ -96,31 +77,9 @@ vendorRouter.post('/getmytiffins', (request, response) => {
     })
   })
 
-  
-
-//4
-// vendorRouter.post('/addtiffin', upload.single('image'), (request, response) => {
-//   const { tiffin_name, description, tiffin_category, tiffin_price, vendor_id } = request.body
-
-//   // request has a property named file which gives details of uploaded file
-//   // console.log(request.file)
-//   const filename = request.file.filename
-
-//   db.query(
-//     `insert into tiffins (tiffin_name, description, tiffin_category, tiffin_price, vendor_id, 
-//       image_link) values (?, ?, ?, ?, ?, ?)`,
-//     [tiffin_name, description, tiffin_category, tiffin_price,vendor_id, filename],
-//     (error, data) => {
-//       if (error) {
-//         response.send('error')
-//       } else {
-//         response.send(data)
-//       }
-//     })
-// })
-
-//4
-//Add tiffin: /vendor/addtiffin
+//5
+//To add new tiffin
+//   /vendor/addtiffin
 vendorRouter.post('/addtiffin', (request, response) => {
     const statement = `insert into tiffins values(default, '${request.body.tiffin_name}', 
     '${request.body.description}', '${request.body.tiffin_category}', 
@@ -134,6 +93,9 @@ vendorRouter.post('/addtiffin', (request, response) => {
     })
   })
 
+  //6
+  //To display order history
+  //   /vendor/orderhistory
   vendorRouter.post('/orderhistory', (request, response) => {
     const statement = `select customers.name, tiffins.tiffin_name, order_items.quantity, orders.total_price, orders.timestamp from order_items,
     orders, customers, tiffins where customers.customer_id = orders.customer_id and orders.order_id = order_items.order_id
@@ -148,7 +110,9 @@ vendorRouter.post('/addtiffin', (request, response) => {
     })
   })
 
-
+//7
+//To get the tiffin details by tiffinId
+//   /vendor/getmytiffin
 vendorRouter.post('/getmytiffin', (request, response) => {
   const statement = `select * from tiffins where tiffin_id = ${request.body.tiffin_id}`
   db.query(statement, (error, data) => {
@@ -160,8 +124,9 @@ vendorRouter.post('/getmytiffin', (request, response) => {
   })
 })
 
-//5
-//Update tiffin: /vendor/updatetiffin
+//8
+//To edit tiffin details
+//   /vendor/updatetiffin
 vendorRouter.put('/updatetiffin', (request, response) => {
     const statement = `update tiffins set tiffin_name = '${request.body.tiffin_name}', 
     description = '${request.body.description}', tiffin_category = '${request.body.tiffin_category}', 
@@ -175,8 +140,9 @@ vendorRouter.put('/updatetiffin', (request, response) => {
     })
   })
 
-//6
-//Delete tiffin: /vendor/deletetiffin
+//9
+//To mark the tiffin as 'inactive'
+//   /vendor/deletetiffin
 vendorRouter.delete('/deletetiffin', (request, response) => {
     const statement = `update tiffins set status = 'inactive' 
     where tiffin_id = ${request.body.tiffin_id} and vendor_id = ${request.body.vendor_id}`
@@ -189,6 +155,9 @@ vendorRouter.delete('/deletetiffin', (request, response) => {
     })
   })
 
+  //10
+  //To get the details of vendor by vendorId
+  //   /vendor/getvendorbyid
   vendorRouter.post('/getvendorbyid', (request, response) => {
     const statement = `select * from vendors where vendor_id = ${request.body.vendor_id}`
     db.query(statement, (error, data) => {
@@ -200,8 +169,9 @@ vendorRouter.delete('/deletetiffin', (request, response) => {
     })
   })
 
-//7
-//Update profile: /vendor/updateprofile
+//11
+//To edit the details of vendor
+//   /vendor/updateprofile
 vendorRouter.put('/updateprofile', (request, response) => {
     const statement = `update vendors set name = '${request.body.name}', 
     address = '${request.body.address}', pincode = '${request.body.pincode}', 
@@ -216,8 +186,9 @@ vendorRouter.put('/updateprofile', (request, response) => {
     })
   })
 
-//8
-//Change password: /vendor/changepass
+//12
+//To change the vendor's password
+//   /vendor/changepass
 vendorRouter.put('/changepass', (request, response) => {
     const statement = `update vendors set password = '${request.body.password}' 
     where vendor_id = ${request.body.vendor_id}`
@@ -230,8 +201,9 @@ vendorRouter.put('/changepass', (request, response) => {
     })
   })
 
-//9
-//View feedback/complaints: /vendor/feedbackcomplaints
+//13
+//To display the feedbacks and compaints agains the vendor
+//   /vendor/feedbackcomplaints
 vendorRouter.post('/feedbackcomplaints', (request, response) => {
     const statement = `select customers.name, tiffins.tiffin_name, feedback_complaints.category,
     feedback_complaints.description, feedback_complaints.status from feedback_complaints, 
@@ -247,8 +219,9 @@ vendorRouter.post('/feedbackcomplaints', (request, response) => {
     })
   })
 
-//10
-//View feedback/complaints: /vendor/underreview
+//14
+//To display only 'under review' complaints to the vendor
+//   /vendor/underreview
 vendorRouter.get('/underreview', (request, response) => {
   const statement = `select customers.name, tiffins.tiffin_name, feedback_complaints.category,
   feedback_complaints.description, feedback_complaints.status from feedback_complaints, 
@@ -265,8 +238,9 @@ vendorRouter.get('/underreview', (request, response) => {
   })
 })
 
-//11
-//Approval request: /vendor/approvalrequest
+//15
+//To send the approval request to admin
+//   /vendor/approvalrequest
 vendorRouter.post('/approvalrequest', (request, response) => {
     const statement = `insert into approval_requests values(default, 
         ${request.body.vendor_id}, default)`
@@ -279,6 +253,9 @@ vendorRouter.post('/approvalrequest', (request, response) => {
     })
   })
 
+  //16
+  //To mark the order as delivered
+  //   /vendor/deliver
   vendorRouter.put('/deliver', (request, response) => {
     const statement = `update orders set status = 'delivered' where order_id = ${request.body.order_id}`
     db.query(statement, (error, data) => {

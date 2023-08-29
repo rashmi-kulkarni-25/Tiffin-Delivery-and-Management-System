@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nutritiff.Data;
 using Nutritiff.Models;
@@ -19,6 +20,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //1
+        //To display all tiffins to customer (customer home page)
         [HttpGet("tiffins")]
         public IEnumerable<Tiffin> GetAllTiffins()
         {
@@ -37,6 +39,7 @@ namespace NutritiffBackendDotNet.Controllers
         //}
 
         //2
+        //To display only veg tiffins to customer
         [HttpGet("tiffins/veg")]
         public IEnumerable<Tiffin> GetVegTiffins()
         {
@@ -44,6 +47,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //3
+        //To display only non veg tiffins to customer
         [HttpGet("tiffins/nonveg")]
         public IEnumerable<Tiffin> GetNonvegTiffins()
         {
@@ -51,6 +55,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //4
+        //To login the customer
         [HttpPost("login")]
         public ActionResult<Customer> Login([FromBody] LoginRequest request)
         {
@@ -67,6 +72,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //5
+        //To register the customer
         [HttpPost("register")]
         public ActionResult<Customer> Register([FromBody] Customer customer)
         {
@@ -76,6 +82,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //6
+        //To add a tiffin to cart
         [HttpPost("cart")]
         public ActionResult<Cart> AddToCart([FromBody] Cart cart)
         {
@@ -85,6 +92,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //7
+        //To increase the quantity of tiffins in a cart
         [HttpPatch("cart/increase")]
         public ActionResult<Cart> IncreaseQuantity([FromBody] int cartId)
         {
@@ -101,6 +109,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //8
+        //To decrease the quantity of tiffins in a cart
         [HttpPatch("cart/decrease")]
         public ActionResult<Cart> DecreaseQuantity([FromBody] int cartId)
         {
@@ -125,6 +134,7 @@ namespace NutritiffBackendDotNet.Controllers
         }
 
         //9
+        //To delete the tiffin from cart
         [HttpDelete("cart/delete")]
         public Cart DeleteCart(Cart cartToDelete)
         {
@@ -133,6 +143,8 @@ namespace NutritiffBackendDotNet.Controllers
             return cartToDelete;
         }
 
+        //10
+        //To remove all items form cart
         [HttpDelete("cart/deleteall")]
         public IEnumerable<Cart> DeleteAllFromCart(int customerId)
         {
@@ -152,7 +164,8 @@ namespace NutritiffBackendDotNet.Controllers
         //        return new ActionResult<Order>(order);
         //}
 
-        //10
+        //11
+        //To place order
         [HttpPost("placeorder")]
         public string PlaceOrder([FromBody] Order order)
         {
@@ -196,7 +209,8 @@ namespace NutritiffBackendDotNet.Controllers
             return "Order placed";
         }
 
-        //11
+        //12
+        //To display the customer's orders history
         [HttpPost("myorders")]
         public IEnumerable<PlaceOrder> GetMyOrders([FromBody] int customerId)
         {
@@ -229,7 +243,8 @@ namespace NutritiffBackendDotNet.Controllers
             //{ return Enumerable.Empty<Order>(); }
         }
 
-        //12
+        //13
+        //To cancel the order
         [HttpPatch("cancelorder")]
         public ActionResult<Order> CancelMyOrder([FromBody] int orderId)
         {
@@ -247,7 +262,8 @@ namespace NutritiffBackendDotNet.Controllers
             }
         }
 
-        //13
+        //14
+        //To display only delivered order history
         [HttpPost("myorders/delivered")]
         public IEnumerable<PlaceOrder> DeliveredOrders([FromBody] int customerId)
         {
@@ -280,7 +296,8 @@ namespace NutritiffBackendDotNet.Controllers
             //{ return Enumerable.Empty<Order>(); }
         }
 
-        //14
+        //15
+        //To display canceled orders history
         [HttpPost("myorders/canceled")]
         public IEnumerable<PlaceOrder> CanceledOrders([FromBody] int customerId)
         {
@@ -313,7 +330,8 @@ namespace NutritiffBackendDotNet.Controllers
             //{ return Enumerable.Empty<Order>(); }
         }
 
-        //15
+        //16
+        //To display ordered orders history
         [HttpPost("myorders/ordered")]
         public IEnumerable<PlaceOrder> OrderedOrders([FromBody] int customerId)
         {
@@ -346,7 +364,8 @@ namespace NutritiffBackendDotNet.Controllers
             //{ return Enumerable.Empty<Order>(); }
         }
 
-        //16
+        //17
+        //To get customer's details by customerId
         [HttpGet("profile")]
         public ActionResult<Customer> GetProfile(int customerId)
         {
@@ -361,7 +380,8 @@ namespace NutritiffBackendDotNet.Controllers
             }
         }
 
-        //17
+        //18
+        //To update customer's details
         [HttpPatch("updateprofile")]
         public ActionResult<Customer> UpdateProfile([FromBody] CustomerBody customer)
         {
@@ -384,7 +404,8 @@ namespace NutritiffBackendDotNet.Controllers
             }
         }
 
-        //18
+        //19
+        //To change customer's password
         [HttpPatch("changepassword")]
         public ActionResult<Customer> ChangePassword(int customerId, [FromBody] string password)
         {
@@ -402,7 +423,8 @@ namespace NutritiffBackendDotNet.Controllers
             }
         }
 
-        //19
+        //20
+        //To add a feedback or complaint for a vendor or tiffin
         [HttpPost("feedback")]
         public ActionResult<FeedbackComplaint> GiveFeedback([FromBody] FeedbackComplaint feedback)
         {
@@ -411,7 +433,8 @@ namespace NutritiffBackendDotNet.Controllers
             return new ActionResult<FeedbackComplaint>(feedback);
         }
 
-        //20
+        //21
+        //To add a tiffin to favorites
         [HttpPost("addtofavorites")]
         public ActionResult<Favorite> AddToFavorites([FromBody] Favorite favorite)
         {
@@ -420,7 +443,8 @@ namespace NutritiffBackendDotNet.Controllers
             return new ActionResult<Favorite>(favorite);
         }
 
-        //21
+        //22
+        //To purchase a subscription plan
         [HttpPost("purchaseplan")]
         public ActionResult<SubscriptionPurchase> PurchasePlan([FromBody] SubscriptionPurchase subscription)
         {
@@ -441,6 +465,8 @@ namespace NutritiffBackendDotNet.Controllers
             return new ActionResult<SubscriptionPurchase>(subscription);
         }
 
+        //23
+        //To edit subscription plan
         [HttpPatch("updatesubplandetails")]
         public void UpdateSubPlanDetails(int customerId)
         {
@@ -454,7 +480,8 @@ namespace NutritiffBackendDotNet.Controllers
             else { return; }
         }
 
-        //22
+        //24
+        //To cancel current subscription plan
         [HttpPatch("cancelplan")]
         public ActionResult<SubscriptionPurchase> CancelPlan(int purchaseId)
         {
