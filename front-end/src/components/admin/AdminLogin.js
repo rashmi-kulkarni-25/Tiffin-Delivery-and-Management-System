@@ -31,10 +31,10 @@ function AdminLogin() {
           history.push("/adminhome");
         } else {
           log("Invalid creds...");
-          // toast.error("Invalid password")
+          toast.error("Invalid password");
         }
       } else {
-        toast.error("Invalid password");
+        //toast.error("Invalid password");
       }
     };
     const url = createDotNetUrl("api/admins/login");
